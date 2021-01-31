@@ -4,7 +4,7 @@
 /dist
 /tmp
 /out-tsc
-
+env*/
 # dependencies
 /node_modules
 
@@ -49,3 +49,9 @@ Thumbs.db
 /packages
 
 yarn-error.log
+
+.env
+electron-builder.env
+resources/configuration/certs.p12
+
+yarn.lock

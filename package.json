@@ -1,12 +1,13 @@
 {
-  "name": "particl-desktop",
-  "version": "2.0.0-alpha-testnet",
-  "branch": "market",
+  "name": "ghost-desktop",
+  "version": "2.0.8",
+  "branch": "ghost-2.4",
   "license": "GPL-2.0",
-  "description": "Particl Desktop - decentralized marketplace, private currency, messaging & self-governance",
-  "homepage": "https://particl.io",
+  "description": "Ghost Desktop -  private currency, messaging & self-governance",
+  "homepage": "https://www.ghostbymcafee.com/",
   "keywords": [
-    "particl",
+    "ghost",
+    "mcafee",
     "angular2",
     "angular4",
     "angular-cli",
@@ -14,7 +15,7 @@
     "webpack",
     "typescript"
   ],
-  "author": "Particl contributors",
+  "author": "Ghost contributors",
   "main": "main.js",
   "scripts": {
     "ng": "ng",
@@ -34,8 +35,10 @@
     "package:mac": "yarn run build:electron:prod && electron-builder -m && yarn run checksum",
     "package:linux": "yarn run build:electron:prod && electron-builder -l && yarn run checksum",
     "package:win": "yarn run build:electron:prod && electron-builder --win --x64 && yarn run checksum",
+    "package:win:test": "yarn run build:electron && electron-builder --win --x64 && yarn run checksum",
     "package:win32": "yarn run build:electron:prod && electron-builder --win --ia32 && yarn run checksum",
     "package": "yarn run build:electron:prod && electron-builder -ml && electron-builder --win --x64 && yarn run checksum",
+    "package:test": "yarn run build:electron:prod && electron-builder -ml && electron-builder --win --x64 && yarn run checksum",
     "coveralls": "cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js",
     "compodoc": "compodoc -p tsconfig.json -d docs",
     "generate-release": "node ./modules/clientBinaries/generateVersions.js",
@@ -44,17 +47,19 @@
     "travis:win64": "electron-builder --win --x64 && yarn run checksum",
     "travis:win32": "electron-builder --win --ia32 && yarn run checksum",
     "travis:test": "ng test --watch=false --code-coverage",
-    "start": "yarn run start:electron:fast"
+    "start": "yarn run start:electron:fast",
+    "deploy": "npm run build:electron:prod && electron-builder -mw --publish=always && electron-builder --win --ia32 --publish-always && npm run checksum"
   },
-  "productName": "Particl Desktop Testnet",
+  "productName": "Ghost Desktop",
   "build": {
     "electronVersion": "4.0.3",
-    "appId": "io.particl.desktop",
+    "appId": "com.ghostbymcafee.desktop",
     "npmRebuild": true,
     "directories": {
       "buildResources": "resources",
       "output": "packages"
     },
+    "afterSign": "./resources/configuration/afterSignHook.js",
     "files": [
       "main.js",
       "preload.js",
@@ -68,9 +73,10 @@
     "mac": {
       "artifactName": "${name}-${version}-${os}.${ext}",
       "category": "public.app-category.wallet",
-      "target": [
-        "zip"
-      ]
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "resources/configuration/entitlements.mac.plist",
+      "entitlementsInherit": "resources/configuration/entitlements.mac.plist"
     },
     "dmg": {
       "background": "background-mac.png",
@@ -114,11 +120,11 @@
       "uninstallerIcon": "resources/icon.ico",
       "createDesktopShortcut": "always",
       "createStartMenuShortcut": true,
-      "menuCategory": "Particl Desktop Testnet",
+      "menuCategory": "Ghost Desktop",
       "runAfterFinish": true
     },
     "linux": {
-      "maintainer": "particl contributors <hello@particl.io>",
+      "maintainer": "ghost contributors <hello@ghostbymcafee.com>",
       "artifactName": "${name}-${version}-${os}-${arch}.${ext}",
       "target": [
         {
@@ -140,11 +146,11 @@
           ]
         }
       ],
-      "executableName": "Particl Desktop",
+      "executableName": "Ghost Desktop",
       "desktop": {
-        "Comment": "Particl, P2P Privacy ecosystem",
-        "Icon": "particl-desktop",
-        "Name": "Particl Desktop Testnet",
+        "Comment": "Ghost, P2P Privacy ecosystem",
+        "Icon": "ghost-desktop",
+        "Name": "Ghost Desktop",
         "StartupNotify": "true",
         "Terminal": "false",
         "Type": "Application",
@@ -156,9 +162,13 @@
     },
     "asar": true,
     "asarUnpack": [
-      "node_modules/sqlite3/**/*",
-      "node_modules/particl-marketplace/**/*"
-    ]
+      "node_modules/sqlite3/**/*"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "ghost-coin",
+      "repo": "ghost-desktop"
+    }
   },
   "dependencies": {
     "@jedmao/ini-parser": "^0.2.1",
@@ -169,13 +179,14 @@
     "buffered-spawn": "^3.3.2",
     "cli-progress": "^1.7.0",
     "core-js": "^2.4.1",
+    "dotenv": "^8.2.0",
     "electron-log": "^2.2.14",
+    "electron-notarize": "^1.0.0",
     "got": "^9.6.0",
     "hammerjs": "^2.0.8",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "ng2-nvd3": "^2.0.0",
     "node-unzip-2": "^0.2.1",
-    "particl-marketplace": "^0.0.54",
     "rx-ipc-electron": "^0.1.2",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
@@ -207,7 +218,7 @@
     "codelyzer": "^4.1.0",
     "coveralls": "^3.0.0",
     "electron": "4.0.3",
-    "electron-builder": "^20.38.5",
+    "electron-builder": "^22.9.1",
     "htmlhint": "^0.10.1",
     "iso3166-2-db": "^2.2.1",
     "jasmine-core": "^3.3.0",
@@ -221,7 +232,7 @@
     "ng2-logger": "^1.0.11",
     "ngx-clipboard": "11.1.9",
     "ngx-infinite-scroll": "7.1.0",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.14.1",
     "protractor": "^5.3.0",
     "sass-lint": "^1.10.2",
     "ts-node": "^5.0.0",

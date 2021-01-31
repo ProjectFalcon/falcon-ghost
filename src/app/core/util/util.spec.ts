@@ -14,15 +14,22 @@ describe('AddressHelper', () => {
   }));
 
   it('should test testnet address', inject([AddressHelper], (addressHelper: AddressHelper) => {
-    const testAddress = 'pXvYNzP4UoW5UD2C27PzbFQ4ztG2W4Xakx';
+    const testAddress = 'XZBvxrgAgDUJzeh9Ba7L9ezkNLCxvDEAii';
     expect(addressHelper.testAddress(testAddress, 'public')).toBe(true);
     expect(addressHelper.getAddress(testAddress)).toEqual(testAddress);
   }));
 
   it('should test mainnet address', inject([AddressHelper], (addressHelper: AddressHelper) => {
-    const mainAddress = 'PtF9rU2qR9JYBPvE3irVmeZn1YTsi3A9w9';
+    const mainAddress = 'GMhR1hP7aXMJ3C515KiB69gHYmrVNT5NhV';
     expect(addressHelper.testAddress(mainAddress, 'public')).toBe(true);
     expect(addressHelper.getAddress(mainAddress)).toEqual(mainAddress);
+  }));
+
+  it('should test bech32 address', inject([AddressHelper], (addressHelper: AddressHelper) => {
+    const bech32Address = 'gx1qqp528m7654yhav5clp5jq83cfu6nwpl76atpqvlzn6hchk4ah7xs' +
+    'gcpqvrxkkzamn5mrw42gr97xcyna83p07zafy7p3kyx6q2qfz8k86m95qqqjtremu';
+    expect(addressHelper.testAddress(bech32Address, 'private')).toBe(true);
+    expect(addressHelper.getAddress(bech32Address)).toEqual(bech32Address);
   }));
 
 });

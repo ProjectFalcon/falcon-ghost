@@ -3,26 +3,30 @@
     <app-balance type="total_balance"></app-balance>
   </div>
   <div class="balance-item">
-    <app-balance type="balance"></app-balance>
+    <app-balance type="anon_balance"></app-balance>
   </div>
   <div class="balance-item">
     <app-balance type="blind_balance"></app-balance>
   </div>
-  <div class="balance-item" *ngIf="testnet">
-    <app-balance type="anon_balance"></app-balance>
+  <div class="balance-item">
+    <app-balance type="balance"></app-balance>
   </div>
   <table class="balances by-status" cellspacing="0">
     <tr>
-      <th>Spendable</th>
+      <th matTooltip="Currently available for spending" matTooltipPosition="left">Spendable</th>
       <td><app-balance type="actual_balance" [inSidebar]="true"></app-balance></td>
     </tr>
     <tr>
-      <th>Locked</th>
+      <th matTooltip="Reserved coins unavailable for spend" matTooltipPosition="left">Locked</th>
       <td><app-balance type="locked_balance" [inSidebar]="true"></app-balance></td>
     </tr>
     <tr>
-      <th>Staking</th>
-      <td><app-balance type="staked_balance" [inSidebar]="true"></app-balance></td>
+      <th matTooltip="Immature coins not able to spend" matTooltipPosition="left">Immature</th>
+      <td><app-balance type="" types="immature_balance,immature_anon_balance,staked_balance" [inSidebar]="true"></app-balance></td>
+    </tr>
+    <tr>
+      <th matTooltip="Incoming unconfirmed coins" matTooltipPosition="left">Unconfirmed</th>
+      <td><app-balance type="" types="unconfirmed_balance,unconfirmed_blind,unconfirmed_anon" [inSidebar]="true"></app-balance></td>
     </tr>
   </table>
 </mat-card>
@@ -59,7 +63,7 @@
           </div>
         </div>
       </mat-card>
-    </div><!-- .seller-overview -->
+    </div><-- .seller-overview -->
 
     <div class="recent-transactions section">
       <header>
@@ -95,9 +99,11 @@
           <div class="item"><div class="value">2</div><div class="desc">Shipped</div></div>
         </div>
       </mat-card>
-    </div><!-- .buy-orders -->
-
+    </div> -->
+    <!-- .buy-orders -->
     <app-coldstake></app-coldstake>
+    <app-stake *ngIf="isHotStakingVisible()"></app-stake>
+    <!-- Removed Cold Staking, Enable this component when needed -->
     <app-stakinginfo></app-stakinginfo>
 
     <!-- TODO: uncomment when widget management is ready -->

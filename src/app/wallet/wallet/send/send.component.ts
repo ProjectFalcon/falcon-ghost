@@ -97,7 +97,7 @@ export class SendComponent implements OnInit, OnDestroy {
     this.send.output = TxType.PUBLIC;
     if (this.type === 'balanceTransfer') {
       this.send.toAddress = '';
-      this.send.output = TxType.BLIND;
+      this.send.output = TxType.ANON;
       this.verifyAddress();
     }
     this.updateAmount();
@@ -231,6 +231,8 @@ export class SendComponent implements OnInit, OnDestroy {
           }
           break;
       }
+    } else {
+      this.send.input = this.send.output = txType as TxType;
     }
   }
 

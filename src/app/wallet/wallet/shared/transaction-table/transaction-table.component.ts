@@ -83,6 +83,26 @@ export class TransactionsTableComponent implements OnInit {
       this.expandedTransactionID = txid;
     }
   }
+  // func to check if internal tx should show conversion flow
+  public shouldshowIO(tx: Transaction): boolean {
+    return tx != null && tx.type_in != null && tx.type_output != null;
+  }
+
+  public isPoolStake(tx: Transaction): boolean {
+    return tx.getCategory() === 'stake' && tx.getAmountObject().getAmount() === 0;
+  }
+
+  public getIOText(tx: Transaction): string {
+    return `${tx.type_in.toUpperCase()} --> ${tx.type_output.toUpperCase()}`;
+  }
+
+  public shouldshowRecvType(tx: Transaction): boolean {
+    return tx.type_in != null;
+  }
+
+  public getRecvTxt(tx: Transaction): string {
+    return `(${tx.type_in.toUpperCase()})`;
+  }
 
   public checkExpandDetails(tx: Transaction): boolean {
     return (this.expandedTransactionID === tx.getExpandedTransactionID());

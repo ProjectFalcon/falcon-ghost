@@ -11,10 +11,21 @@
 
 .icon {
   padding: 1px 0 1px 4px;
-
   // Encryption
   &.encryption {
+    padding: 0px;
     cursor: pointer;
+  }
+   // Staking icon
+   &.hot-staking {
+    padding-left: 0px;
+    font-size: 0.8em;
+    &.active {
+      color: $color-info;
+    }
+    &.inactive {
+      color: darken($bg-shadow, 15%);
+    }
   }
 
   // Staking icon
@@ -30,7 +41,6 @@
 
   // Console
   &.console {
-    margin-left: 6px;
     position: relative;
     top: 1px;
     cursor: pointer;

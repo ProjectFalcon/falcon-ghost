@@ -30,7 +30,7 @@ export class RpcStateService extends StateService implements OnDestroy {
     this.register('listunspent', 5000, [0]);
     this.register('getblockchaininfo', 5000);
     this.register('getnetworkinfo', 10000);
-    this.register('getstakinginfo', 10000);
+    this.register('getstakinginfo', 5500);
     this.register('getcoldstakinginfo', 10000);
 
     // TODO: get rid of these
@@ -50,7 +50,7 @@ export class RpcStateService extends StateService implements OnDestroy {
   /**
    * Make an RPC Call that saves the response in the state service.
    *
-   * @param {string} method  The JSON-RPC method to call, see ```./particld help```
+   * @param {string} method  The JSON-RPC method to call, see ```./ghostd help```
    *
    * The rpc call and state update will only take place while `this._enableState` is `true`
    *

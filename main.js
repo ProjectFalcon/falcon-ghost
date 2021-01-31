@@ -9,7 +9,7 @@ const platform      = require('os').platform();
 
 /* correct appName and userData to respect Linux standards */
 if (process.platform === 'linux') {
-  app.setName('particl-desktop');
+  app.setName('ghost-desktop');
   app.setPath('userData', `${app.getPath('appData')}/${app.getName()}`);
 }
 
@@ -32,6 +32,7 @@ const options = daemonConfig.getConfiguration();
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
+let closeDaemonWindow;
 let tray;
 
 // This method will be called when Electron has finished
@@ -55,6 +56,7 @@ app.on('window-all-closed', function () {
   // On OS X it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
+    initCloseWindow();
     app.quit()
   }
 });
@@ -94,7 +96,15 @@ function initMainWindow() {
           { role: 'delete' },
           { role: 'selectall' }
         ]
-      }
+      },
+      {
+        label: 'Ghost Desktop',
+        submenu: [
+            {
+                role: 'quit'
+            }
+        ]
+    },
     ]));
   }
 
@@ -225,11 +235,11 @@ function makeTray() {
       submenu: [
         {
           label: 'About ' + app.getName(),
-          click() { electron.shell.openExternal('https://particl.io/#about'); }
+          click() { electron.shell.openExternal('https://www.ghostbymcafee.com/'); }
         },
         {
-          label: 'Visit Particl.io',
-          click() { electron.shell.openExternal('https://particl.io'); }
+          label: 'Visit Ghost by Mcafee',
+          click() { electron.shell.openExternal('https://www.ghostbymcafee.com/'); }
         },
         {
           label: 'Visit Electron',
@@ -248,7 +258,7 @@ function makeTray() {
   // }
 
   // Set the tray icon
-  tray.setToolTip('Particl ' + app.getVersion());
+  tray.setToolTip('Ghost ' + app.getVersion());
   tray.setContextMenu(contextMenu)
 
   // Always show window when tray icon clicked
@@ -257,4 +267,64 @@ function makeTray() {
   });
 
   return trayImage;
+}
+
+
+/**
+ * Creates close window
+ */
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
+
+const initCloseWindow =  function () {
+  electron.Menu.setApplicationMenu(null);
+  // Create the browser window.
+  closeDaemonWindow = new BrowserWindow({
+    // width: on Win, the width of app is few px smaller than it should be
+    // (this triggers smaller breakpoints) - this size should cause
+    // the same layout results on all OSes
+    // minWidth/minHeight: both need to be specified or none will work
+    width:     670,
+    minWidth:  670,
+    height:    675,
+    minHeight: 675,
+    icon:      path.join(__dirname, 'resources/icon.png'),
+
+    frame: false,
+    darkTheme: true,
+
+    webPreferences: {
+      backgroundThrottling: false,
+      webviewTag: false,
+      nodeIntegration: false,
+      sandbox: true,
+      contextIsolation: false,
+    },
+  });
+
+  // and load the index.html of the app.
+  if (options.dev) {
+   closeDaemonWindow.loadURL('http://localhost:4200/assets/closingWindow/closingWindowDev.html');
+  } else {
+    closeDaemonWindow.loadURL(url.format({
+      protocol: 'file:',
+      pathname: path.join(__dirname, 'dist/assets/closingWindow/closingWindow.html'),
+      slashes: true
+    }));
+  }
+
+  // Open the DevTools.
+  if (options.devtools) {
+    closeDaemonWindow.webContents.openDevTools()
+  }
+
+
+
+  // Emitted when the window is closed.
+  closeDaemonWindow.on('closed', function () {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    closeDaemonWindow = null
+  });
 }
