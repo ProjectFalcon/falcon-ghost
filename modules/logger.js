@@ -7,11 +7,11 @@ exports.init = function () {
   log.transports.file.level    = 'debug';
 
   log.transports.file.appName = process.platform == 'linux'
-    ? 'ghost-desktop'
-    : 'Ghost Desktop';
+    ? 'falcon-desktop'
+    : 'Falcon Desktop';
   let logPath = options.testnet
-    ? 'ghost-desktop-testnet.log'
-    : 'ghost-desktop.log';
+    ? 'falcon-desktop-testnet.log'
+    : 'falcon-desktop.log';
   log.transports.file.file = log.transports.file
     .findLogPath(log.transports.file.appName)
     .replace('log.log', logPath);

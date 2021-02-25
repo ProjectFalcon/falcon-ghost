@@ -9,7 +9,7 @@ const platform      = require('os').platform();
 
 /* correct appName and userData to respect Linux standards */
 if (process.platform === 'linux') {
-  app.setName('ghost-desktop');
+  app.setName('falcon-desktop');
   app.setPath('userData', `${app.getPath('appData')}/${app.getName()}`);
 }
 
@@ -98,7 +98,7 @@ function initMainWindow() {
         ]
       },
       {
-        label: 'Ghost Desktop',
+        label: 'Falcon Desktop',
         submenu: [
             {
                 role: 'quit'
@@ -235,11 +235,11 @@ function makeTray() {
       submenu: [
         {
           label: 'About ' + app.getName(),
-          click() { electron.shell.openExternal('https://www.ghostbymcafee.com/'); }
+          click() { electron.shell.openExternal('https://www.falconofficial.com/'); }
         },
         {
-          label: 'Visit Ghost by Mcafee',
-          click() { electron.shell.openExternal('https://www.ghostbymcafee.com/'); }
+          label: 'Visit Falcon',
+          click() { electron.shell.openExternal('https://www.falconofficial.com/'); }
         },
         {
           label: 'Visit Electron',

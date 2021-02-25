@@ -1,13 +1,11 @@
 {
-  "name": "ghost-desktop",
+  "name": "falcon-desktop",
   "version": "2.0.8",
-  "branch": "ghost-2.4",
+  "branch": "2.4",
   "license": "GPL-2.0",
-  "description": "Ghost Desktop -  private currency, messaging & self-governance",
-  "homepage": "https://www.ghostbymcafee.com/",
+  "description": "Falcon Desktop -  private currency, messaging & self-governance",
+  "homepage": "https://falconofficial.com/",
   "keywords": [
-    "ghost",
-    "mcafee",
     "angular2",
     "angular4",
     "angular-cli",
@@ -50,10 +48,10 @@
     "start": "yarn run start:electron:fast",
     "deploy": "npm run build:electron:prod && electron-builder -mw --publish=always && electron-builder --win --ia32 --publish-always && npm run checksum"
   },
-  "productName": "Ghost Desktop",
+  "productName": "Falcon Desktop",
   "build": {
     "electronVersion": "4.0.3",
-    "appId": "com.ghostbymcafee.desktop",
+    "appId": "com.falconofficial.desktop",
     "npmRebuild": true,
     "directories": {
       "buildResources": "resources",
@@ -120,11 +118,11 @@
       "uninstallerIcon": "resources/icon.ico",
       "createDesktopShortcut": "always",
       "createStartMenuShortcut": true,
-      "menuCategory": "Ghost Desktop",
+      "menuCategory": "Falcon Desktop",
       "runAfterFinish": true
     },
     "linux": {
-      "maintainer": "ghost contributors <hello@ghostbymcafee.com>",
+      "maintainer": "falcon contributors <admin@falconofficial.com>",
       "artifactName": "${name}-${version}-${os}-${arch}.${ext}",
       "target": [
         {
@@ -146,11 +144,11 @@
           ]
         }
       ],
-      "executableName": "Ghost Desktop",
+      "executableName": "Falcon Desktop",
       "desktop": {
-        "Comment": "Ghost, P2P Privacy ecosystem",
-        "Icon": "ghost-desktop",
-        "Name": "Ghost Desktop",
+        "Comment": "Falcon, P2P Privacy ecosystem",
+        "Icon": "falcon-desktop",
+        "Name": "Falcon Desktop",
         "StartupNotify": "true",
         "Terminal": "false",
         "Type": "Application",
@@ -167,7 +165,7 @@
     "publish": {
       "provider": "github",
       "owner": "ghost-coin",
-      "repo": "ghost-desktop"
+      "repo": "falcon-desktop"
     }
   },
   "dependencies": {

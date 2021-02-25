@@ -1,4 +1,4 @@
-# ghost-desktop – UI
+# falcon-desktop – UI
 
 > *"GHOST is a Proof of Stake privacy coin to help make you nothing but a "ghost" when transacting online!"*
 
@@ -9,15 +9,15 @@ We provide a decentralized privacy platform with a suite of tools to enhance you
 
 This repository is the user interface that works in combination with our [`ghost-core`](https://github.com/ghost-coin/ghost-core).
 
-[![Download the packaged wallet for Mac, Windows and Linux](download-button.png)](https://github.com/ghost-coin/ghost-desktop/releases)
+[![Download the packaged wallet for Mac, Windows and Linux](download-button.png)](https://github.com/ghost-coin/falcon-desktop/releases)
 
 # Contribute
 
-[![Snyk](https://snyk.io/test/github/ghost-coin/ghost-desktop/badge.svg)](https://snyk.io/test/github/ghost-coin/ghost-desktop)
-[![Build Status](https://travis-ci.org/ghost-coin/ghost-desktop.svg?branch=master)](https://travis-ci.org/ghost-coin/ghost-desktop)
-[![Coverage Status](https://coveralls.io/repos/github/ghost-coin/ghost-desktop/badge.svg?branch=master)](https://coveralls.io/github/ghost-coin/ghost-desktop?branch=master)
-[![Code Climate](https://codeclimate.com/github/ghost-coin/ghost-desktop/badges/gpa.svg)](https://codeclimate.com/github/ghost-coin/ghost-desktop)
-[![Greenkeeper badge](https://badges.greenkeeper.io/ghost-coin/ghost-desktop.svg)](https://greenkeeper.io/)
+[![Snyk](https://snyk.io/test/github/ghost-coin/falcon-desktop/badge.svg)](https://snyk.io/test/github/ghost-coin/falcon-desktop)
+[![Build Status](https://travis-ci.org/ghost-coin/falcon-desktop.svg?branch=master)](https://travis-ci.org/ghost-coin/falcon-desktop)
+[![Coverage Status](https://coveralls.io/repos/github/ghost-coin/falcon-desktop/badge.svg?branch=master)](https://coveralls.io/github/ghost-coin/falcon-desktop?branch=master)
+[![Code Climate](https://codeclimate.com/github/ghost-coin/falcon-desktop/badges/gpa.svg)](https://codeclimate.com/github/ghost-coin/falcon-desktop)
+[![Greenkeeper badge](https://badges.greenkeeper.io/ghost-coin/falcon-desktop.svg)](https://greenkeeper.io/)
 
 > Be sure to read our [Contributing Guidelines](CONTRIBUTING.md) first
 
@@ -30,8 +30,8 @@ This repository is the user interface that works in combination with our [`ghost
 * Download + Install [git](https://git-scm.com/)
 
 ```bash
-git clone https://github.com/ghost-coin/ghost-desktop
-cd ghost-desktop
+git clone https://github.com/ghost-coin/falcon-desktop
+cd falcon-desktop
 yarn install
 ```
 

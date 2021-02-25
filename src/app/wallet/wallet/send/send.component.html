@@ -43,7 +43,7 @@
       </p>
       <p class="widget-help">
         What are the differences between Blind and Anon balances? How do they affect my privacy? Learn more on Ghost Wiki:
-        <a mat-button  target = "_blank" href="https://ghostbymcafee.com" class="small">
+        <a mat-button  target = "_blank" href="https://falconofficial.com" class="small">
           <mat-icon fontSet="partIcon" fontIcon="part-wikipedia"></mat-icon>
           Currency &amp; transaction types
         </a>
@@ -63,7 +63,7 @@
             <mat-radio-button  class="balance" value="anon" color="primary" (change)="setInputOutput('anon', 'output')" fxFlex >
               <div class="name">Anon</div>
               <div class="desc">Available balance:<span class="amount">{{ balanceDisplay(TxType.ANON) }}</span></div>
-            </mat-radio-button>     
+            </mat-radio-button>
             <mat-radio-button class="balance" value="blind" fxFlex color="primary" (change)="setInputOutput('blind', 'output')" >
               <div class="name">Blind</div>
               <div class="desc">Available balance:<span class="amount">{{ balanceDisplay(TxType.BLIND) }}</span>
