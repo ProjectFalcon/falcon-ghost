@@ -73,7 +73,7 @@ function getAuthentication(url) {
 }
 
 function loadMarketAuthentication() {
-    // let key = "dev1.ghost.xyz:";
+    // let key = "dev1.falcon.xyz:";
     let key = "localhost:3000";
     let value = {
         name: "market",

@@ -88,7 +88,7 @@ function mkDir(dirPath, root) {
 
 /*
 ** returns the current RPC cookie
-** RPC cookie is regenerated at every ghostd startup
+** RPC cookie is regenerated at every falcond startup
 */
 function getAuth(options) {
 

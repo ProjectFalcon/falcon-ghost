@@ -130,7 +130,7 @@ export class ZapColdstakingComponent {
 
             this.log.d('zap splits', splits);
 
-            this._rpc.call('sendtypeto', ['ghost', 'ghost', outputs, '', '', 4, 64, true, {inputs: this.inputs}
+            this._rpc.call('sendtypeto', ['falcon', 'falcon', outputs, '', '', 4, 64, true, {inputs: this.inputs}
           ]).subscribe(tx => {
               this.log.d('fees', tx);
               this.fee = tx.fee;
@@ -170,13 +170,13 @@ export class ZapColdstakingComponent {
     this.log.d('zap splits', splits);
 
 
-    this._rpc.call('sendtypeto', ['ghost', 'ghost', outputs, 'coldstaking zap', '',
+    this._rpc.call('sendtypeto', ['falcon', 'falcon', outputs, 'coldstaking zap', '',
      4, 64, false, {inputs: this.inputs}]).subscribe(info => {
       this.log.d('zap', info);
 
       this.dialogRef.close();
       this.flashNotification.open(
-        `Succesfully zapped ${this.utxos.amount} GHOST to cold staking`, 'warn');
+        `Succesfully zapped ${this.utxos.amount} FNC to cold staking`, 'warn');
     });
 
   }

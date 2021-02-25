@@ -25,7 +25,7 @@ services:
 stages:
   - check
   - name: deploy
-    if: branch = ghost-2.4
+    if: branch = falcon-2.4
 
 jobs:
   include:
@@ -34,7 +34,7 @@ jobs:
         - export TRUE_COMMIT_MESSAGES=$(git log --oneline -2 | grep "+build")
         - export TRUE_COMMIT=$(echo $TRUE_COMMIT_MESSAGES | awk '{print $1}')
         - echo $TRUE_COMMIT_MESSAGES
-        - if [[ $TRUE_COMMIT_MESSAGES == *"+latest"* ]]; then yarn add https://github.com/ghost-coin/ghost-market; fi;
+        - if [[ $TRUE_COMMIT_MESSAGES == *"+latest"* ]]; then yarn add https://github.com/falcon-coin/falcon-market; fi;
         - echo 'Build Dist' && echo -en 'travis_fold:start:script.build\\r'
         - yarn build --base-href="./"
         - echo -en 'travis_fold:end:script.build\\r'

@@ -1,17 +1,17 @@
 {
   "clients": {
-    "ghostd": {
+    "falcond": {
       "version": "0.19.1.9",
       "platforms": {
         "mac": {
           "x64": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.9/ghost-0.19.1.9-osx64.tar.gz",
+              "url": "https://github.com/falcon-coin/falcon-core/releases/download/v0.19.1.9/falcon-0.19.1.9-osx64.tar.gz",
               "type": "tar",
               "sha256": "7a64cc0d5dc944d3783edebdc87259146a82b9036f23ba210ea02dde4a1e5bf8",
-              "bin": "ghost-0.19.1.9/bin/ghostd"
+              "bin": "falcon-0.19.1.9/bin/falcond"
             },
-            "bin": "ghostd",
+            "bin": "falcond",
             "commands": {
               "sanity": {
                 "args": [
@@ -28,12 +28,12 @@
         "win": {
           "x64": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.9/ghost-0.19.1.9-win64.zip",
+              "url": "https://github.com/falcon-coin/falcon-core/releases/download/v0.19.1.9/falcon-0.19.1.9-win64.zip",
               "type": "zip",
               "sha256": "e5ea44af06b2f3bf34fb3b8fb4465538e3b1e130cd1d0709c2523de2ad2726da",
-              "bin": "ghost-0.19.1.9/bin/ghostd.exe"
+              "bin": "falcon-0.19.1.9/bin/falcond.exe"
             },
-            "bin": "ghostd.exe",
+            "bin": "falcond.exe",
             "commands": {
               "sanity": {
                 "args": [

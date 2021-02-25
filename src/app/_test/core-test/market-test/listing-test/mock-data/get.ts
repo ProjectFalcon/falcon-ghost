@@ -202,7 +202,7 @@ const listingGet = {
     },
     'ItemPrice': {
       'id': 1,
-      'currency': 'GHOST',
+      'currency': 'FNC',
       'basePrice': 0.25,
       'paymentInformationId': 1,
       'cryptocurrencyAddressId': null,

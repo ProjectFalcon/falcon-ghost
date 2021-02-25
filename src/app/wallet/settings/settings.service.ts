@@ -10,10 +10,10 @@ export class SettingsService {
       autostart: false,
       detachDatabases: true,
       feeAmount: 0.01,
-      feeCurrency: 'ghost',
+      feeCurrency: 'falcon',
       stake: true,
       reserveAmount: 0,
-      reservceCurrency: 'ghost',
+      reservceCurrency: 'falcon',
       stakeInterval: 30,
       minRing: 3,
       maxRing: 100,
@@ -36,7 +36,7 @@ export class SettingsService {
     },
     display: {
       language: 'default',
-      units: 'ghost',
+      units: 'falcon',
       rows: 20,
       addresses: true,
       notify: {

@@ -1,5 +1,5 @@
 export enum TxType {
-  PUBLIC = 'ghost',
+  PUBLIC = 'falcon',
   BLIND = 'blind',
   ANON = 'anon'
 }
@@ -18,7 +18,7 @@ export class TransactionBuilder {
   validAddress: boolean;
   validAmount: boolean;
   isMine: boolean;
-  currency: string = 'ghost';
+  currency: string = 'falcon';
   ringsize: number = 8;
   subtractFeeFromAmount: boolean = false;
   estimateFeeOnly: boolean = true;

@@ -164,7 +164,7 @@
     ],
     "publish": {
       "provider": "github",
-      "owner": "ghost-coin",
+      "owner": "falcon-coin",
       "repo": "falcon-desktop"
     }
   },

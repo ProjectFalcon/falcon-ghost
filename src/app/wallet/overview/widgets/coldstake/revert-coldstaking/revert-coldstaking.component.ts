@@ -73,7 +73,7 @@ export class RevertColdstakingComponent implements OnInit {
 
             this.log.d('revert fee for address', tx);
 
-            this._rpc.call('sendtypeto', ['ghost', 'ghost', [{
+            this._rpc.call('sendtypeto', ['falcon', 'falcon', [{
               subfee: true,
               address: this.address,
               amount: tx.amount
@@ -115,7 +115,7 @@ export class RevertColdstakingComponent implements OnInit {
 
       this.log.d('revert for address', tx);
 
-      this._rpc.call('sendtypeto', ['ghost', 'ghost', [{
+      this._rpc.call('sendtypeto', ['falcon', 'falcon', [{
         subfee: true,
         address: this.address,
         amount: tx.amount
@@ -129,7 +129,7 @@ export class RevertColdstakingComponent implements OnInit {
         if (++sentTXs === this.utxos.txs.length) {
           this.dialogRef.close();
           this.flashNotification.open(
-            `Succesfully brought ${amount} GHOST into hot wallet`, 'warn');
+            `Succesfully brought ${amount} FNC into hot wallet`, 'warn');
         }
       });
     });

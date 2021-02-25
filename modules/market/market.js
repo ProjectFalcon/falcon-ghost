@@ -1,7 +1,7 @@
 const log = require('electron-log');
 const config = require('../daemon/daemonConfig');
 const cookie = require('../rpc/cookie');
-// uncomment when needed with ghost
+// uncomment when needed with falcon
 // const market = require('particl-marketplace');
 const rxIpc = require('rx-ipc-electron/lib/main').default;
 const Observable = require('rxjs/Observable').Observable;

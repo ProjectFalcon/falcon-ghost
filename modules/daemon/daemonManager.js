@@ -13,10 +13,10 @@ const ClientBinariesManager = require('../clientBinaries/clientBinariesManager')
 const rpc = require('../rpc/rpc');
 
 // master
-// const BINARY_URL = 'https://raw.githubusercontent.com/ghost-coin/falcon-desktop/master/modules/clientBinaries/clientBinaries.json';
+// const BINARY_URL = 'https://raw.githubusercontent.com/falcon-coin/falcon-desktop/master/modules/clientBinaries/clientBinaries.json';
 
 // dev
-// const BINARY_URL = 'https://raw.githubusercontent.com/ghost-coin/falcon-desktop/develop/modules/clientBinaries/clientBinaries.json';
+// const BINARY_URL = 'https://raw.githubusercontent.com/falcon-coin/falcon-desktop/develop/modules/clientBinaries/clientBinaries.json';
 const branchName = (branch || 'develop');
 const BINARY_URL = `https://raw.githubusercontent.com/ProjectFalcon/falcon-desktop/${branchName}/modules/clientBinaries/clientBinaries.json`;
 
@@ -31,7 +31,7 @@ class DaemonManager extends EventEmitter {
   }
 
   getPath() {
-    return this._availableClients['ghostd'].binPath;
+    return this._availableClients['falcond'].binPath;
   }
 
   init(options) {
@@ -65,7 +65,7 @@ class DaemonManager extends EventEmitter {
   }
 
   _checkForNewConfig() {
-    const nodeType = 'ghostd';
+    const nodeType = 'falcond';
     let binariesDownloaded = false;
     let nodeInfo;
 
@@ -221,7 +221,7 @@ class DaemonManager extends EventEmitter {
       this._emit('scanning', 'Scanning for binaries');
 
       return mgr.init({
-        folders: [ path.join(this.localPath, 'ghostd', 'unpacked') ]
+        folders: [ path.join(this.localPath, 'falcond', 'unpacked') ]
       })
       .then(() => {
         const clients = mgr.clients;
@@ -323,7 +323,7 @@ class DaemonManager extends EventEmitter {
 
     log.debug(`Platform: ${platform}`);
 
-    let binPath = path.join(this.localPath, 'ghostd', 'unpacked', 'ghostd');
+    let binPath = path.join(this.localPath, 'falcond', 'unpacked', 'falcond');
 
     if (platform === 'win') {
       binPath += '.exe';
@@ -331,7 +331,7 @@ class DaemonManager extends EventEmitter {
 
     log.debug(`Client binary path: ${binPath}`);
 
-    this._availableClients.ghostd = {
+    this._availableClients.falcond = {
       binPath
     };
   }

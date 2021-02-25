@@ -90,7 +90,7 @@
                   <span class="big number">{{ tx.getAmountObject().getIntegerPartAsString() }}</span><!-- inline element comment hack-->
                   <span class="point">{{ tx.getAmountObject().dot() }}</span><!---->
                   <small class="small number">{{ tx.getAmountObject().getFractionalPart() || '' }}</small>
-                  <span class="currency">GHOST</span>
+                  <span class="currency">FNC</span>
                 </ng-template>
           </span>
           <span class="amount" *ngIf="tx.requires_unlock">
@@ -144,7 +144,7 @@
           <div class="tx-detail-item" fxFlex>
             <span fxFlex="0 0 80px">TXID:</span>
             <a fxFlex="1 1 calc(100% - 80px)" class="tx-detail-link"
-                href="https://{{txService.testnet ? 'testnet.' : ''}}ghostscan.io/tx/{{tx.txid}}"
+                href="https://{{txService.testnet ? 'testnet.' : ''}}falconscan.io/tx/{{tx.txid}}"
                 target="_blank" matTooltip="Show on Block Explorer">
               {{tx.txid}}</a>
           </div>
@@ -154,12 +154,12 @@
           <!-- TX fee (detail) -->
           <div class="tx-detail-item text-right" fxFlex>
             <span>Fee:</span>
-            <span class="value">{{tx.fee ? tx.fee : 0}} GHOST</span>
+            <span class="value">{{tx.fee ? tx.fee : 0}} FNC</span>
           </div>
           <!-- Net amount (detail) -->
           <div class="tx-detail-item text-right" fxFlex>
             <span>Net amount:</span>
-            <span class="value">{{ tx.getNetAmount()}} GHOST</span>
+            <span class="value">{{ tx.getNetAmount()}} FNC</span>
           </div>
         </div>
 
